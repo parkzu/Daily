@@ -19,15 +19,17 @@
         );
       };
 
+      const Good = () => <h3>Good</h3>;
+
       const element = (
         <>
           <Paint title="Good" description="good">
-            <h1>Hi</h1>
+            <Good />
+            <Good />
+            <Good />
           </Paint>
-          <Paint title="Bad" description="bad" />
-          <Paint title="So so" description="so so" />
         </>
-      ); //children 사용시 태그 수행 가능
+      ); //children을 제약없이 사용 가능
       ReactDOM.render(element, rootElement);
     </script>
   </body>
