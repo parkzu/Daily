@@ -8,20 +8,20 @@
     <div id="root"></div>
     <script type="text/babel">
       const rootElement = document.getElementById("root");
-      const paint = () => (
+      const paint = (title, description) => (
         <>
-          <h1>Hi</h1>
-          <h3>Bye</h3>
+          <h1>{title}</h1>
+          <h3>{description}</h3>
         </>
       );
 
       const element = (
         <>
-          {paint()}
-          {paint()}
-          {paint()}
+          {paint("Good", "good")}
+          {paint("Bad", "bad")}
+          {paint("So so", "so so")}
         </>
-      ); //Hi, Bye를 반복하기 위해 paint라는 함수에 넣고 paint를 반복 시행한다.
+      ); //바뀌는 Element 값을 앞에 있는 요소를 title에 주입해주고 뒤에 있는 요소를 description에 주입한다.
       ReactDOM.render(element, rootElement);
     </script>
   </body>
