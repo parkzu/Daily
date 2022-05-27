@@ -8,7 +8,11 @@
     <div id="root"></div>
     <script type="text/babel">
       const rootElement = document.getElementById("root");
-      const paint = (title, description) => (
+
+      const Paint = (
+        { title, description } // props 전달 받음, 명시적으로 대문자 사용
+      ) => (
+        //함수같지만 JSX표현식 리턴
         <>
           <h1>{title}</h1>
           <h3>{description}</h3>
@@ -17,11 +21,11 @@
 
       const element = (
         <>
-          {paint("Good", "good")}
-          {paint("Bad", "bad")}
-          {paint("So so", "so so")}
+          <Paint title="Good" description="good" />
+          <Paint title="Bad" description="bad" />
+          <Paint title="So so" description="so so" />
         </>
-      ); //바뀌는 Element 값을 앞에 있는 요소를 title에 주입해주고 뒤에 있는 요소를 description에 주입한다.
+      );
       ReactDOM.render(element, rootElement);
     </script>
   </body>
