@@ -9,25 +9,23 @@
     <script type="text/babel">
       const rootElement = document.getElementById("root");
 
-      const Paint = ({ title, description, children }) => {
-        return (
-          <>
-            <h1>{title}</h1>
-            <h3>{description}</h3>
-            {children}
-          </>
-        );
+      const Text = ({ text }) => {
+        // text가 대문자로 시작하면 h1, 소문자로 시작하면 h3
+        if (text.charAt(0) === text.charAt(0).toUpperCase()) {
+          //JS
+          return <h1>{text}</h1>; //JSX //JS // JSX
+        } else {
+          return <h3>{text}</h3>;
+        }
       };
-
-      const Good = () => <h3>Good</h3>;
 
       const element = (
         <>
-          <Paint title="Good" description="good">
-            {Paint({ title: "Bad", description: "bad", children: "hi" })}
-          </Paint>
+          <Text text="Text" />
+          <Text text="text" />
         </>
       );
+
       ReactDOM.render(element, rootElement);
     </script>
   </body>
