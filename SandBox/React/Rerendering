@@ -5,18 +5,15 @@
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <div id="root"></div>
-    <script>
+    <script type="text/babel">
       const rootElement = document.getElementById("root");
       function random() {
         const number = Math.floor(Math.random() * (10 - 1) + 1);
-        const element = `
-        <button>${number}</button>
-      `;
-        rootElement.innerHTML = element;
+        const element = <button>{number}</button>;
+        ReactDOM.render(element, rootElement);
       }
 
-      setInterval(random, 1000); //특정 함수를 특정 간격동안 불러옴 1000 = 1s
+      setInterval(random, 1000);
     </script>
-    <!-- <script tupe="text/babel"></script> -->
   </body>
 </html>
