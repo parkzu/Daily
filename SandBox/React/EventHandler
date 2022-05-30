@@ -9,8 +9,9 @@
       const rootElement = document.getElementById("root");
 
       const handleClick = () => alert("pressed");
+      const handleMouseOut = () => alert("bye");
       const element = (
-        <button onClick={handleClick} onMouseOut={() => alert("bye")}>
+        <button onClick={handleClick} onMouseOut={handleMouseOut}>
           Press
         </button>
       );
