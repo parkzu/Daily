@@ -7,11 +7,10 @@
     <div id="root"></div>
     <script type="text/babel">
       const rootElement = document.getElementById("root");
+
+      const handleClick = () => alert("pressed");
       const element = (
-        <button
-          onClick={() => alert("pressed")}
-          onMouseOut={() => alert("bye")}
-        >
+        <button onClick={handleClick} onMouseOut={() => alert("bye")}>
           Press
         </button>
       );
