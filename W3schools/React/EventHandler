@@ -9,6 +9,7 @@
 <script>
 	const button = document.getElementById("button");
     button.addEventListener("mouseout", () => alert("bye"));
+    button.addEventListener("click", () => alert("press"));
 </script>
 
 </body>
