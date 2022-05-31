@@ -11,15 +11,24 @@
       const state = { keyword: "", typing: false, result: "" }; //전역변수 선언
 
       const App = () => {
-        function handleChange() {
-          setState({ keyword: event.target.value });
+        function handleChange(event) {
+          setState({ typing: true, keyword: event.target.value });
         }
+
+        function handleClick() {
+          setState({
+            typing: false,
+            result: ` We find results of ${state.keyword}`
+          });
+        }
+
         return (
           <>
             <input onChange={handleChange} />
-            <button>search</button>
-
-            <p>Looking for {state.keyword} ...</p>
+            <button onClick={handleClick}>search</button>
+            <p>
+              {state.typing ? `Looking for ${state.keyword}...` : state.result}
+            </p>
           </>
         );
       };
