@@ -9,9 +9,13 @@
       const rootElement = document.getElementById("root");
 
       const App = () => {
-        const [keyword, setKeyword] = React.useState("");
+        // const [keyword, setKeyword] = React.useState("");
         const [result, setResult] = React.useState("");
         const [typing, setTyping] = React.useState(false);
+
+        const keywordState = React.useState("");
+        const keyword = keywordState[0];
+        const setKeyword = keywordState[1];
 
         function handleChange(event) {
           setKeyword(event.target.value);
