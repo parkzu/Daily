@@ -9,11 +9,19 @@
       const rootElement = document.getElementById("root");
 
       const App = () => {
-        const [keyword, setKeyword] = React.useState(
-          window.localStorage.getItem("keyword")
-        );
+        const [keyword, setKeyword] = React.useState(() => {
+          console.log("initialize");
+          return window.localStorage.getItem("keyword");
+        });
         const [result, setResult] = React.useState("");
         const [typing, setTyping] = React.useState(false);
+
+        console.log("render");
+
+        React.useEffect(() => {
+          console.log("effect");
+          window.localStorage.setItem("keyword", keyword);
+        }, [keyword, typing]);
 
         function handleChange(event) {
           window.localStorage.setItem("keyword", event.target.value);
