@@ -21,7 +21,7 @@
         React.useEffect(() => {
           console.log("effect");
           window.localStorage.setItem("keyword", keyword);
-        }. []);
+        }, []);
 
         function handleChange(event) {
           window.localStorage.setItem("keyword", event.target.value);
