@@ -12,10 +12,7 @@
         const [show, setShow] = React.useState(false);
 
         function handleClick() {
-          setShow(true);
-          if (show) {
-            setShow(false);
-          } else setShow(true);
+          setShow((prev) => !prev); //입력받은 값의 반대로 변환
         }
 
         return (
