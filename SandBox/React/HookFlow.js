@@ -8,19 +8,31 @@
     <script type="text/babel">
       const rootElement = document.getElementById("root");
 
+      const Child = () => {
+        console.log("Child render start");
+        const element = (
+          <>
+            <input />
+            <p></p>
+          </>
+        );
+        console.log("Child render end");
+        return element;
+      };
+
       const App = () => {
         console.log("APP render start");
         const [show, setShow] = React.useState(() => {
           console.log("APP useState");
           return false;
         });
-
-        React.useEffect(() => {
-          console.log("APP useEffect, no deps");
-        });
         React.useEffect(() => {
           console.log("APP useEffect, empty deps");
         }, []);
+        React.useEffect(() => {
+          console.log("APP useEffect, no deps");
+        });
+
         React.useEffect(() => {
           console.log("APP useEffect, [show]");
         }, [show]);
@@ -32,12 +44,7 @@
         return (
           <>
             <button onClick={handleClick}>Search</button>
-            {show ? (
-              <>
-                <input />
-                <p></p>
-              </>
-            ) : null}
+            {show ? <Child /> : null}
           </>
         );
       };
