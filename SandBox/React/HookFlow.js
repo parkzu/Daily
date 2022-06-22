@@ -9,14 +9,23 @@
       const rootElement = document.getElementById("root");
 
       const Child = () => {
-        console.log("Child render start");
+        console.log("   Child render start");
+        const [text, setText] = React.useState(() => {
+          console.log("   Child useState");
+          return "";
+        });
+
+        function handleChange(event) {
+          setText(event.target.value);
+        }
+
         const element = (
           <>
-            <input />
-            <p></p>
+            <input onChange={handleChange} />
+            <p>{text}</p>
           </>
         );
-        console.log("Child render end");
+        console.log("   Child render end");
         return element;
       };
 
