@@ -15,6 +15,18 @@
           return "";
         });
 
+        React.useEffect(() => {
+          console.log("   Child useEffect, no deps");
+        });
+
+        React.useEffect(() => {
+          console.log("   Child useEffect, empty deps");
+        }, []);
+
+        React.useEffect(() => {
+          console.log("   Child useEffect, [text] deps");
+        }, [text]);
+
         function handleChange(event) {
           setText(event.target.value);
         }
