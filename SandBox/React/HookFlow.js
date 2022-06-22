@@ -41,6 +41,8 @@
           setShow((prev) => !prev);
         }
 
+        console.log("APP render end");
+
         return (
           <>
             <button onClick={handleClick}>Search</button>
@@ -49,7 +51,6 @@
         );
       };
 
-      console.log("APP render end");
       ReactDOM.render(<App />, rootElement);
     </script>
   </body>
