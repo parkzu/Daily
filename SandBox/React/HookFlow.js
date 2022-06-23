@@ -17,14 +17,23 @@
 
         React.useEffect(() => {
           console.log("   Child useEffect, no deps");
+          return () => {
+            console.log("   Child useEffect [Cleanup], no deps");
+          };
         });
 
         React.useEffect(() => {
           console.log("   Child useEffect, empty deps");
+          return () => {
+            console.log("   Child useEffect [Cleanup], empty deps");
+          };
         }, []);
 
         React.useEffect(() => {
           console.log("   Child useEffect, [text] deps");
+          return () => {
+            console.log("   Child useEffect [Cleanup], [text]");
+          };
         }, [text]);
 
         function handleChange(event) {
@@ -48,14 +57,26 @@
           return false;
         });
         React.useEffect(() => {
-          console.log("APP useEffect, empty deps");
-        }, []);
-        React.useEffect(() => {
           console.log("APP useEffect, no deps");
+
+          return () => {
+            console.log("APP useEffect [Cleanup], no deps");
+          };
         });
 
         React.useEffect(() => {
+          console.log("APP useEffect, empty deps");
+
+          return () => {
+            console.log("APP useEffect [Cleanup], empty deps");
+          };
+        }, []);
+
+        React.useEffect(() => {
           console.log("APP useEffect, [show]");
+          return () => {
+            console.log("APP useEffect [Cleanup], [show] deps");
+          };
         }, [show]);
 
         function handleClick() {
