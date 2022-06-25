@@ -39,8 +39,8 @@
       function Button({ className = "", color, style, ...rest }) {
         return (
           <button
-            className={`button ${className} ${color}`}
-            style={{ fontSize: 30, ...style }} //공통 적용
+            className={`button ${className} ${color}`} //후순위
+            style={{ fontSize: 30, backgroundColor: "pink", ...style }} //우선순위
             {...rest}
           />
         );
@@ -49,7 +49,10 @@
       const element = (
         <>
           <Button style={{ borderRadius: "50%" }}>Green</Button>
-          <Button color="blue" style={{ borderRadius: 8, fontSize: 20 }}>
+          <Button
+            color="blue"
+            style={{ borderRadius: 8, fontSize: 20, backgroundColor: "red" }}
+          >
             Blue
           </Button>
           <Button color="red">Red</Button>
