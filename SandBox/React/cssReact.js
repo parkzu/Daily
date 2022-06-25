@@ -20,17 +20,17 @@
         cursor: pointer;
       }
 
-      .button2 {
+      .blue {
         background-color: #008cba;
       } /* Blue */
-      .button3 {
+      .red {
         background-color: #f44336;
       } /* Red */
-      .button4 {
+      .gray {
         background-color: #e7e7e7;
         color: black;
       } /* Gray */
-      .button5 {
+      .black {
         background-color: #555555;
       } /* Black */
     </style>
@@ -38,11 +38,15 @@
     <script type="text/babel">
       const element = (
         <>
-          <button className="button">Green</button>
-          <button className="button button2">Blue</button>
-          <button className="button button3">Red</button>
-          <button className="button button4">Gray</button>
-          <button className="button button5">Black</button>
+          <button className="button" style={{ borderRadius: "50%" }}>
+            Green
+          </button>
+          <button className="button blue" style={{ borderRadius: 8 }}>
+            Blue
+          </button>
+          <button className="button red">Red</button>
+          <button className="button gray">Gray</button>
+          <button className="button black">Black</button>
         </>
       );
 
