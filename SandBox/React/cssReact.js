@@ -36,10 +36,11 @@
     </style>
 
     <script type="text/babel">
-      function Button({ className = "", style, ...rest }) {
+      function Button({ className = "", color, style, ...rest }) {
         return (
           <button
-            className={`button${className === "" ? "" : ` ${className}`}`}
+            className={`button ${className} ${color}`}
+            style={{ fontSize: 30, ...style }} //공통 적용
             {...rest}
           />
         );
@@ -48,12 +49,12 @@
       const element = (
         <>
           <Button style={{ borderRadius: "50%" }}>Green</Button>
-          <Button className="blue" style={{ borderRadius: 8 }}>
+          <Button color="blue" style={{ borderRadius: 8, fontSize: 20 }}>
             Blue
           </Button>
-          <Button className="red">Red</Button>
-          <Button className="gray">Gray</Button>
-          <Button className="black">Black</Button>
+          <Button color="red">Red</Button>
+          <Button color="gray">Gray</Button>
+          <Button color="black">Black</Button>
         </>
       );
 
