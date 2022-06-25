@@ -36,17 +36,23 @@
     </style>
 
     <script type="text/babel">
+      function Button(props) {
+        //props 안에는 className, style, children ...이 있음
+        console.log(JSON.stringify(props));
+        return <button className="button" {...props} />;
+      }
+
       const element = (
         <>
-          <button className="button" style={{ borderRadius: "50%" }}>
+          <Button className="button" style={{ borderRadius: "50%" }}>
             Green
-          </button>
-          <button className="button blue" style={{ borderRadius: 8 }}>
+          </Button>
+          <Button className="button blue" style={{ borderRadius: 8 }}>
             Blue
-          </button>
-          <button className="button red">Red</button>
-          <button className="button gray">Gray</button>
-          <button className="button black">Black</button>
+          </Button>
+          <Button className="button red">Red</Button>
+          <Button className="button gray">Gray</Button>
+          <Button className="button black">Black</Button>
         </>
       );
 
