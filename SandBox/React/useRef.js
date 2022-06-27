@@ -8,12 +8,14 @@
     <script type="text/babel">
       const rootElement = document.getElementById("root");
       const App = () => {
+        const inputRef = React.useRef();
         React.useEffect(() => {
-          document.getElementById("input").focus();
+          inputRef.current.focus();
+          // document.getElementById("input").focus();
         }, []);
         return (
           <>
-            <input id="input" />
+            <input ref={inputRef} />
           </>
         );
       };
