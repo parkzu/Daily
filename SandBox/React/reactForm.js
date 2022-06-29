@@ -13,7 +13,7 @@
 
           console.dir(event.target.elements);
           alert(
-            `FirstName: ${event.target.elements.fname.value}, LastName: ${event.target.elements.lname.value}`
+            `FirstName: ${event.target.elements.fname.value}, Choosed Car: ${event.target.elements.cars.value}`
           );
         };
         return (
@@ -22,11 +22,13 @@
             <br />
             <input type="text" id="fname" name="fname" defaultValue="John" />
             <br />
-            <label htmlFor="lname">Last name:</label>
-            <br />
-            <input type="text" id="lname" name="lname" defaultValue="Doe" />
-            <br />
-            <br />
+            <label htmlFor="cars">Choose a car:</label>
+            <select id="cars" name="cars">
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+              <option value="fiat">Fiat</option>
+              <option value="audi">Audi</option>
+            </select>
             <input type="submit" value="Submit" />
           </form>
         );
