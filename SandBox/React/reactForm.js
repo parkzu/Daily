@@ -11,9 +11,9 @@
         const handleSubmit = (event) => {
           event.preventDefault();
 
-          console.dir(event.target);
+          console.dir(event.target.elements);
           alert(
-            `FirstName: ${event.target[0].value}, LastName: ${event.target[1].value}`
+            `FirstName: ${event.target.elements.fname.value}, LastName: ${event.target.elements.lname.value}`
           );
         };
         return (
