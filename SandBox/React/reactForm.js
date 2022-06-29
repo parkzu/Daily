@@ -20,7 +20,7 @@
           <form onSubmit={handleSubmit}>
             <label htmlFor="fname">First name:</label>
             <br />
-            <input type="text" id="fname" name="fname" defaultValue="John" />
+            <input type="text" id="fname1" name="fname" defaultValue="John" />
             <br />
             <label htmlFor="cars">Choose a car:</label>
             <select id="cars" name="cars">
