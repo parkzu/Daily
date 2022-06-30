@@ -8,21 +8,29 @@
     <script type="text/babel">
       const rootElement = document.getElementById("root");
       const App = () => {
+        const [phoneNumber, setPhoneNumber] = React.useState("");
+        const [message, setMessage] = React.useState("");
+
         const handleSubmit = (event) => {
           event.preventDefault();
-          const phoneNumber = event.target.elements.phone.value;
+          alert(phoneNumber);
+        };
 
+        const handleChange = (event) => {
+          setPhoneNumber(event.target.value);
           if (phoneNumber.startsWith(0)) {
-            alert("Good");
+            setMessage("Phone Number is valid");
           } else {
-            alert("Bad");
+            setMessage("Phone Number should starts with 0");
           }
         };
+
         return (
           <form onSubmit={handleSubmit}>
             <label htmlFor="phone">Phone Number: </label>
             <br />
-            <input id="phone" name="phone" type="number" />
+            <input id="phone" name="phone" onChange={handleChange} />
+            <p>{message}</p>
             <br />
             <br />
             <button type="submit">Submit</button>
