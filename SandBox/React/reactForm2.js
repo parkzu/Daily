@@ -17,12 +17,12 @@
         };
 
         const handleChange = (event) => {
-          setPhoneNumber(event.target.value);
-          if (phoneNumber.startsWith(0)) {
+          if (event.target.value.startsWith(0)) {
             setMessage("Phone Number is valid");
           } else {
             setMessage("Phone Number should starts with 0");
           }
+          setPhoneNumber(event.target.value);
         };
 
         return (
@@ -36,7 +36,7 @@
             <button
               type="submit"
               disabled={
-                !phoneNumber.length > 0 || message !== "Phone Number is valid"
+                !phoneNumber.length === 0 || message !== "Phone Number is valid"
               }
             >
               Submit
