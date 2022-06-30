@@ -8,8 +8,18 @@
     <script type="text/babel">
       const rootElement = document.getElementById("root");
       const App = () => {
+        const handleSubmit = (event) => {
+          event.preventDefault();
+          const phoneNumber = event.target.elements.phone.value;
+
+          if (phoneNumber.startsWith(0)) {
+            alert("Good");
+          } else {
+            alert("Bad");
+          }
+        };
         return (
-          <form>
+          <form onSubmit={handleSubmit}>
             <label htmlFor="phone">Phone Number: </label>
             <br />
             <input id="phone" name="phone" type="number" />
