@@ -33,7 +33,14 @@
             <p>{message}</p>
             <br />
             <br />
-            <button type="submit">Submit</button>
+            <button
+              type="submit"
+              disabled={
+                !phoneNumber.length > 0 || message !== "Phone Number is valid"
+              }
+            >
+              Submit
+            </button>
           </form>
         );
       };
