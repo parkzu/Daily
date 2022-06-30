@@ -19,17 +19,25 @@
         const handleChange = (event) => {
           if (event.target.value.startsWith(0)) {
             setMessage("Phone Number is valid");
+            setPhoneNumber(event.target.value);
+          } else if (event.target.value.length === 0) {
+            setPhoneNumber("");
+            setMessage("");
           } else {
             setMessage("Phone Number should starts with 0");
           }
-          setPhoneNumber(event.target.value);
         };
 
         return (
           <form onSubmit={handleSubmit}>
             <label htmlFor="phone">Phone Number: </label>
             <br />
-            <input id="phone" name="phone" onChange={handleChange} />
+            <input
+              id="phone"
+              name="phone"
+              onChange={handleChange}
+              value={phoneNumber}
+            />
             <p>{message}</p>
             <br />
             <br />
@@ -41,6 +49,7 @@
             >
               Submit
             </button>
+            <p>{phoneNumber}</p>
           </form>
         );
       };
