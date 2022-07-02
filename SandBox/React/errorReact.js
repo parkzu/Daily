@@ -24,9 +24,7 @@
       }
 
       const Fallback = ({ error }) => {
-        alert(error.message);
-        
-        return <p>THERE is some ERROR...</p>;
+        return <p>{error.message}</p>;
       };
 
       const Child = () => {
