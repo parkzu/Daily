@@ -17,13 +17,15 @@
         render() {
           const { error } = this.state;
           if (error) {
-            return this.props.fallback;
+            return <this.props.fallback error={error} />;
           }
           return this.props.children;
         }
       }
 
-      const Fallback = () => {
+      const Fallback = ({ error }) => {
+        alert(error.message);
+        
         return <p>THERE is some ERROR...</p>;
       };
 
@@ -35,7 +37,7 @@
         return (
           <>
             <p>App</p>
-            <ErrorBoundray fallback={<Fallback />}>
+            <ErrorBoundray fallback={Fallback}>
               <Child />
             </ErrorBoundray>
           </>
