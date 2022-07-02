@@ -23,6 +23,10 @@
         }
       }
 
+      const Fallback = () => {
+        return <p>THERE is some ERROR...</p>;
+      };
+
       const Child = () => {
         throw new Error("Something Wrong....");
         return <p>Child...</p>;
@@ -31,7 +35,7 @@
         return (
           <>
             <p>App</p>
-            <ErrorBoundray fallback={<p>There is some Error...</p>}>
+            <ErrorBoundray fallback={<Fallback />}>
               <Child />
             </ErrorBoundray>
           </>
