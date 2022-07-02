@@ -8,8 +8,7 @@
     <script type="text/babel">
       const rootElement = document.getElementById("root");
 
-      class ErrorBoundary extends React.Component {
-        //class 로 선언
+      class ErrorBoundray extends React.Component {
         state = { error: null };
         static getDerivedStateFromError(error) {
           return { error };
@@ -18,7 +17,7 @@
         render() {
           const { error } = this.state;
           if (error) {
-            return <p>There is some error...</p>;
+            return this.props.fallback;
           }
           return this.props.children;
         }
@@ -32,9 +31,9 @@
         return (
           <>
             <p>App</p>
-            <ErrorBoundary>
+            <ErrorBoundray fallback={<p>There is some Error...</p>}>
               <Child />
-            </ErrorBoundary>
+            </ErrorBoundray>
           </>
         );
       };
