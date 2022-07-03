@@ -22,6 +22,13 @@
           setItems((items) => items.filter((item) => item !== todo));
         };
 
+        const handleRestoreClick = () => {
+          setItems((items) => [
+            ...items,
+            todos.find((item) => !items.includes(item))
+          ]);
+        };
+
         return (
           <>
             {items.map((todo) => (
@@ -30,6 +37,7 @@
                 <button onClick={() => handleDoneClick(todo)}>Done</button>
               </div>
             ))}
+            <button onClick={handleRestoreClick}>Restore</button>
           </>
         );
       };
