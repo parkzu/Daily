@@ -63,7 +63,7 @@
         return (
           <>
             {items.map((todo) => (
-              <div>
+              <div key={todo.id}>
                 <button onClick={() => handleDoneClick(todo)}>
                   {todo.value}
                 </button>
