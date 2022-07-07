@@ -9,14 +9,45 @@
       const rootElement = document.getElementById("root");
 
       const todos = [
-        { id: 1, value: "Wash dishies" },
-        { id: 2, value: "Clean the bed" },
-        { id: 3, value: "Running" },
-        { id: 4, value: "Learning" }
+        [
+          { id: 1, value: "Wash dishies" },
+          { id: 2, value: "Clean the bed" },
+          { id: 3, value: "Running" },
+          { id: 4, value: "Learning" }
+        ],
+        [
+          { id: 4, value: "Learning" },
+          { id: 1, value: "Wash dishies" },
+          { id: 2, value: "Clean the bed" },
+          { id: 3, value: "Running" }
+        ],
+        [
+          { id: 3, value: "Running" },
+          { id: 1, value: "Wash dishies" },
+          { id: 2, value: "Clean the bed" },
+          { id: 4, value: "Learning" }
+        ],
+        [
+          { id: 2, value: "Clean the bed" },
+          { id: 1, value: "Wash dishies" },
+          { id: 3, value: "Running" },
+          { id: 4, value: "Learning" }
+        ]
       ];
 
       const App = () => {
-        const [items, setItems] = React.useState(todos);
+        const [items, setItems] = React.useState(todos[0]);
+
+        React.useEffect(() => {
+          const interval = setInterval(() => {
+            const random = Math.floor(Math.random() * 3);
+            setItems(todos[random]);
+          }, 1000);
+
+          return () => {
+            clearInterval(interval);
+          };
+        }, []);
 
         const handleDoneClick = (todo) => {
           setItems((items) => items.filter((item) => item !== todo));
@@ -32,11 +63,14 @@
         return (
           <>
             {items.map((todo) => (
-              <div key={todo.id}>
-                <span>{todo.value}</span>
-                <button onClick={() => handleDoneClick(todo)}>Done</button>
+              <div>
+                <button onClick={() => handleDoneClick(todo)}>
+                  {todo.value}
+                </button>
               </div>
             ))}
+            <br />
+            <br />
             <button onClick={handleRestoreClick}>Restore</button>
           </>
         );
