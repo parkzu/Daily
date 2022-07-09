@@ -9,30 +9,47 @@
       const rootElement = document.getElementById("root");
 
       const Id = () => {
+        const [id, setId] = React.useState("");
+
+        const handleIdChange = (event) => {
+          setId(event.target.value);
+          console.log(`length: ${event.target.value.length > 0}`);
+        };
         return (
           <>
             <label>ID: </label>
-            <input />
+            <input onChange={handleIdChange} />
           </>
         );
       };
 
       const Password = () => {
+        const [password, setPassword] = React.useState("");
+
+        const handlePasswordChange = (event) => {
+          setPassword(event.target.value);
+          console.log(`length: ${event.target.value.length > 0}`);
+        };
         return (
           <>
             <label>PW: </label>
-            <input />
+            <input type="password" onChange={handlePasswordChange} />
           </>
         );
       };
 
       const App = () => {
+        const handleLoginClick = () => {
+          alert(`id: ${id}, pw: ${password}`);
+        };
         return (
           <>
             <Id />
             <br />
             <Password />
-            <button disabled={true}>Login</button>
+            <button disabled={true} onClick={handleLoginClick}>
+              Login
+            </button>
           </>
         );
       };
