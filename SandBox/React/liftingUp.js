@@ -8,13 +8,7 @@
     <script type="text/babel">
       const rootElement = document.getElementById("root");
 
-      const Id = () => {
-        const [id, setId] = React.useState("");
-
-        const handleIdChange = (event) => {
-          setId(event.target.value);
-          console.log(`length: ${event.target.value.length > 0}`);
-        };
+      const Id = ({ handleIdChange }) => {
         return (
           <>
             <label>ID: </label>
@@ -23,13 +17,7 @@
         );
       };
 
-      const Password = () => {
-        const [password, setPassword] = React.useState("");
-
-        const handlePasswordChange = (event) => {
-          setPassword(event.target.value);
-          console.log(`length: ${event.target.value.length > 0}`);
-        };
+      const Password = ({ handlePasswordChange }) => {
         return (
           <>
             <label>PW: </label>
@@ -39,14 +27,27 @@
       };
 
       const App = () => {
+        const [id, setId] = React.useState("");
+        const [password, setPassword] = React.useState("");
+
+        const handleIdChange = (event) => {
+          setId(event.target.value);
+          console.log(`id length: ${event.target.value.length > 0}`);
+        };
+
+        const handlePasswordChange = (event) => {
+          setPassword(event.target.value);
+          console.log(`pw length: ${event.target.value.length > 0}`);
+        };
+
         const handleLoginClick = () => {
           alert(`id: ${id}, pw: ${password}`);
         };
         return (
           <>
-            <Id />
+            <Id handleIdChange={handleIdChange} />
             <br />
-            <Password />
+            <Password handlePasswordChange={handlePasswordChange} />
             <button disabled={true} onClick={handleLoginClick}>
               Login
             </button>
