@@ -48,7 +48,10 @@
             <Id handleIdChange={handleIdChange} />
             <br />
             <Password handlePasswordChange={handlePasswordChange} />
-            <button disabled={true} onClick={handleLoginClick}>
+            <button
+              disabled={id.length === 0 && password.length === 0}
+              onClick={handleLoginClick}
+            >
               Login
             </button>
           </>
