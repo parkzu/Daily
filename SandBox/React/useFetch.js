@@ -19,12 +19,23 @@
               return response.json();
             })
             .then(function (myJson) {
-              console.log(JSON.stringify(myJson));
+              setData(myJson.data);
             });
         }, []);
+
+        if (data == null) {
+          return <p>Loading....</p>;
+        }
+
         return (
           <div>
             <p>People</p>
+            {data.people.map((person) => (
+              <div>
+                <span>name : {person.name} </span>
+                <span>age : {person.age} </span>
+              </div>
+            ))}
           </div>
         );
       };
