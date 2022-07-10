@@ -10,6 +10,7 @@
 
       const App = () => {
         const [data, setData] = React.useState(null);
+        const [error, setError] = React.useState(null);
 
         React.useEffect(() => {
           fetch(
@@ -20,8 +21,15 @@
             })
             .then(function (myJson) {
               setData(myJson.data);
+            })
+            .catch((error) => {
+              setError(error.message);
             });
         }, []);
+
+        if (error != null) {
+          return <p>{error}</p>;
+        }
 
         if (data == null) {
           return <p>Loading....</p>;
