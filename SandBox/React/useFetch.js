@@ -28,11 +28,11 @@
         }, []);
 
         if (error != null) {
-          return <p>{error}</p>;
+          return <p>There is some Error!</p>;
         }
 
         if (data == null) {
-          return <p>Loading....</p>;
+          return <p style={{ color: "red" }}>Loading....</p>;
         }
 
         return (
