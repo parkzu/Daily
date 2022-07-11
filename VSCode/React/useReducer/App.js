@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo, useCallback } from 'react';
+import React, { useRef, useReducer, useMemo, useCallback } from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
 
@@ -34,7 +34,12 @@ const initialState = {
   ]
 };
 
+function reducer(state, action) {
+  return state;
+}
+
 function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <>
       <CreateUser />
