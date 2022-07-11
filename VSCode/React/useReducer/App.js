@@ -40,10 +40,13 @@ function reducer(state, action) {
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const { users } = state;
+  const { username, email } = state.inputs;
+
   return (
     <>
-      <CreateUser />
-      <UserList users={[]} />
+      <CreateUser username={username} email={email} />
+      <UserList users={users} />
       <div>활성사용자 수 : 0</div>
     </>
   );
