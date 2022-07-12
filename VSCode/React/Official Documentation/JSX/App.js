@@ -1,7 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 
-const name = 'Jiyu';
+function formatName(user) {
+  return user.firstName + ' ' + user.lastName;
+}
+
+const user = {
+  firstName: 'Ji',
+  lastName: 'yu'
+};
 function App() {
   return (
     <div className="App">
@@ -10,7 +17,9 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <h1>Hello, {name}</h1>
+        <h1>
+          Hello, {formatName(user)}!
+        </h1>
 
       </header>
     </div>
