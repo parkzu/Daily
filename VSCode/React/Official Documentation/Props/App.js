@@ -1,16 +1,14 @@
-import React from 'react'
+import './App.css';
+import Extratction from './components/2-4.Props/Extraction/Extraction';
+import Composition from './components/2-4.Props/Composition';
 
-function Welcome(props) {
-    return <h1>Hello, {props.name}</h1>
-}
-
-export default function Composition() {
+function App() {
   return (
-    <div>
-        <Welcome name="Jiyu" />
-        <Welcome name="Jimmy" />
-        <Welcome name="Tommy" />
-        <Welcome name="Amy" />
+    <div className="App">
+      <Extratction />
+      <Composition />
     </div>
-  )
+  );
 }
+
+export default App;
