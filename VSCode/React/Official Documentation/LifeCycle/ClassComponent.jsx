@@ -4,7 +4,8 @@ export default class ClassComponent extends Component  {
     constructor(props) {
         super(props);
         console.log('conts');
-        this.state = { date: new Date()};    
+        this.state = { date: new Date()}; 
+        this.handleClick = this.handleClick.bind(this);   
     }
 
     componentDidMount() {
@@ -26,11 +27,16 @@ export default class ClassComponent extends Component  {
         this.setState({date : new Date()});
     }
 
+    handleClick() {
+        alert(this.state.date);
+    }
+
+
     render() {
         console.log('render');
         return (
             <div>
-                <h1>Hello, world!</h1>
+                <h1 onClick={this.handleClick}>Hello, world!</h1>
                 <h2>{this.state.date.toLocaleTimeString()}</h2>
              </div>
     )
