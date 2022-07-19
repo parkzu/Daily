@@ -17,10 +17,13 @@ export default function List() {
     ];
 
     const Item = (props) => {
-        return <li>{props.text}</li>;
+        return <li>
+            {props.id}
+            {props.text}
+            </li>;
     }
 
-    const todoList = todos.map((todo) => <Item{...todo} />)
+    const todoList = todos.map((todo) => <Item  key={todo.id} id={todo.id} text={todo.text} />)
 
     return (
         <>{todoList}</>
