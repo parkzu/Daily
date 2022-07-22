@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 
 export default function ControlledComponent() {
     
-    const  [value,setValue] = useState("");
+    const  [name,setName] = useState("");
     const  [essay,setEssay] = useState(
       "Please write an essay about your favorite DOM element."
       );
 
     function handleChange(event) {
-        setValue(event.target.value);
+        setName(event.target.value);
       }
     
     function handleEssayChange(event) {
@@ -16,7 +16,7 @@ export default function ControlledComponent() {
       }
     
     function handleSubmit(event) {
-        alert('A name was submitted: ' + value);
+        alert(`name: ${name}, essay: ${essay}`);
         event.preventDefault();
       }
     
@@ -25,7 +25,7 @@ export default function ControlledComponent() {
     <form onSubmit={handleSubmit}>
         <label>
           Name:
-          <input type="text" value={value} onChange={handleChange} />
+          <input type="text" value={name} onChange={handleChange} />
         </label>
         <br />
         <br />
