@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 export default function ControlledComponent() {
     
     const  [name,setName] = useState("");
+    const  [flavor,setFlavor] = useState("coconut");
     const  [essay,setEssay] = useState(
       "Please write an essay about your favorite DOM element."
       );
@@ -14,9 +15,13 @@ export default function ControlledComponent() {
     function handleEssayChange(event) {
         setEssay(event.target.value);
       }
+
+    function handleFlavorChange(event) {
+        setFlavor(event.target.value);
+      }
     
     function handleSubmit(event) {
-        alert(`name: ${name}, essay: ${essay}`);
+        alert(`name: ${name}, essay: ${essay}, flavor: ${flavor}`);
         event.preventDefault();
       }
     
@@ -32,6 +37,17 @@ export default function ControlledComponent() {
         <label>
           Essay:
           <textarea value={essay} onChange={handleEssayChange} />
+        </label>
+        <br />
+        <br />
+        <label>
+          Pick your favorite flavor:
+          <select value={flavor} onChange={handleFlavorChange}>
+            <option value="grapefruit">Grapefruit</option>
+            <option value="lime">Lime</option>
+            <option value="coconut">Coconut</option>
+            <option value="mango">Mango</option>
+          </select>
         </label>
         <input type="submit" value="Submit" />
       </form>
