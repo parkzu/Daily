@@ -10,6 +10,6 @@ export default function WelcomeDialog() {
 //     </Dialog>
 //   )
     return (
-        <CustomDialog title = "Welcome" description= "Thanks"/>
+        <CustomDialog title = {<button>"Welcome"</button> }description= "Thanks"/>
     )
 }
