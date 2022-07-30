@@ -1,11 +1,10 @@
 import './App.css';
-import Dialog from './components/3-6.Composition2/Dialog';
+import ThankyouDialog from './components/3-6.Composition2/ThankyouDialog';
 
 function App() {
   return (
     <div className="App">
-      <Dialog />
-
+      <ThankyouDialog />
     </div>
   );
 }
