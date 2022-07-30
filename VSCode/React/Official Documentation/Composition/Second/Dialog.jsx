@@ -18,6 +18,7 @@ export default function Dialog(props) {
         }}
     >
             <p>Hello</p>
+            <button onClick={() => setIsOpen(false)}>OK</button>
         </div>
        )}
         {isOpen && <div style={{
