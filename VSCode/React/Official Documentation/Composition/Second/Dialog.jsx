@@ -17,8 +17,10 @@ export default function Dialog(props) {
             backgroundColor: "white",
         }}
     >
-            <p>Hello</p>
-            <button onClick={() => setIsOpen(false)}>OK</button>
+            <h1>{props.title}</h1>
+            <h5>{props.description}</h5>
+            <button style={{ backgroundColor: "red", color: "white"}} 
+            onClick={() => setIsOpen(false)}>{props.button}</button>
         </div>
        )}
         {isOpen && <div style={{
