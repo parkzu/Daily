@@ -31,7 +31,9 @@ export default function Dialog(props) {
             <button style={{ backgroundColor: "red", color: "white"}} 
             onClick={() => setIsOpen(false)}>{props.button}</button>
             ) : (
-                props.button
+                <div onClick={() => setIsOpen(false)}>
+                    {props.button}
+                </div>
                 )}
         </div>
        )}
