@@ -17,10 +17,22 @@ export default function Dialog(props) {
             backgroundColor: "white",
         }}
     >
+            { typeof props.title === "string" ? (
             <h1>{props.title}</h1>
-            <h5>{props.description}</h5>
+            ) : (
+                props.title
+                )}
+            { typeof props.description === "string" ? (
+            <h1>{props.description}</h1>
+            ) : (
+                props.description
+                )}
+            { typeof props.button === "string" ? (
             <button style={{ backgroundColor: "red", color: "white"}} 
             onClick={() => setIsOpen(false)}>{props.button}</button>
+            ) : (
+                props.button
+                )}
         </div>
        )}
         {isOpen && <div style={{
