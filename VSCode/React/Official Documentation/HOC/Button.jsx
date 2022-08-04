@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function Button() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(()=>setLoading(false), 1000);
+
+    return() => clearTimeout(timer);
+  },[])
+
   return (
-    <button>
-        Button
-    </button>
+    loading ? <p>Loading...</p> : <button>Button</button>
   )
 }
