@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { memo } from 'react'
 import "./CommentItem.css";
 
-export default function CommentItem({title, content, likes}) {
+function CommentItem({title, content, likes}) {
   return (
     <div className="CommentItem">
         <span>{title}</span>
@@ -12,3 +12,5 @@ export default function CommentItem({title, content, likes}) {
     </div>
   );
 }
+
+export default memo(CommentItem);
