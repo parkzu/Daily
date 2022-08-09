@@ -14,9 +14,13 @@ function CommentItem({title, content, likes}) {
     // 렌더링 타이밍을 집합하거나 로그...
     console.log(`actualDuration(${title}: ${actualDuration})`);
   }
+
+  const handleClick = () => {
+    alert(`${title} 눌림`);
+  }
   return (
       <Profiler id="CommentItem" onRender={onRenderCallback}>
-        <div className="CommentItem">
+        <div className="CommentItem" onClick={handleClick}>
           <span>{title}</span>
           <br />
           <span>{content}</span>
