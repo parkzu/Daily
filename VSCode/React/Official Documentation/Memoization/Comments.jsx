@@ -10,6 +10,7 @@ export default function Comments({commentList}) {
             title={comment.title}
             content={comment.content}
             likes={comment.likes}
+            onClick={() => console.log('눌림')}
             />
         ))}
     </div>
