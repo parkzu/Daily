@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import CommentItem from "./CommentItem"
 
 export default function Comments({commentList}) {
-  const handleChange = useCallback(() => {
+  const handleClick = useCallback(() => {
       console.log("눌림");
   }, []);
   return (
@@ -13,7 +13,7 @@ export default function Comments({commentList}) {
             title={comment.title}
             content={comment.content}
             likes={comment.likes}
-            onClick={handleChange}
+            onClick={handleClick}
             />
         ))}
     </div>
