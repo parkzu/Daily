@@ -6,9 +6,13 @@ class ThemedButton extends Component {
     let props = this.props;
     let theme = this.context;
     return (
-      <button{...props} 
+      <button
+      {...props} 
+      onClick={props.changeTheme}
       style={{backgroundColor: theme.background, color: theme.foreground}}
-      >Button</button>
+      >
+        Button
+      </button>
     );
   }
 }
