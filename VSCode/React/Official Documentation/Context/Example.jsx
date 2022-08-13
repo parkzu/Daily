@@ -1,38 +1,38 @@
-import React, { Component } from 'react'
-import { ThemeContext, themes } from './ThemeContext';
-import ThemedButton from './ThemedButton';
+// import React, { Component } from 'react'
+// import { ThemeContext } from './ThemeContext';
 
-export default class Example extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            theme: themes.light,
-        };
-        this.toggleTheme = () => {
-            this.setState((prev) => ({
-                theme: prev.theme === themes.dark ? themes.light : themes.dark,
-            }));
-        }
-    }
-  render() {
-    return (
-      <div>
-        <ThemeContext.Provider value={this.state.theme}>
-            <ThemedButton changeTheme={this.toggleTheme} />
-            <ThemeContext.Consumer>
-                {theme => (
-                <div 
-                    style={{
-                        height: 300, 
-                        width: 300, 
-                        backgroundColor: theme.background,
-                    }}>
-                </div>
-                )}
-            </ThemeContext.Consumer>
-        </ThemeContext.Provider>
-        <ThemedButton />
-      </div>
-    )
-  }
+// class ThemedButton extends Component {
+//   render() {
+//     let props = this.props;
+//     let theme = this.context;
+//     return (
+//       <button
+//       {...props} 
+//       onClick={props.changeTheme}
+//       style={{backgroundColor: theme.background, color: theme.foreground}}
+//       >
+//         Button
+//       </button>
+//     );
+//   }
+// }
+
+// ThemedButton.contextType = ThemeContext;
+
+// export default ThemedButton;
+
+import React, { useContext } from 'react'
+import { ThemeContext } from './ThemeContext';
+
+export default function ThemedButton(props) {
+    const theme = useContext(ThemeContext);
+  return (
+    <button
+       {...props} 
+       onClick={props.changeTheme}
+       style={{backgroundColor: theme.background, color: theme.foreground}}
+       >
+         Button
+       </button>
+  );
 }
