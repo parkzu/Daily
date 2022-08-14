@@ -8,7 +8,7 @@ const Portal = (props) => {
 
 export default function Example() {
   return (
-    <div>
+    <div onClick={() => console.log('div')}>
         <Portal>
         <ThankyouDialog />
         </Portal>
