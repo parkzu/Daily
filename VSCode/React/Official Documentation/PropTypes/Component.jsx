@@ -12,7 +12,21 @@ PropComponent.defaultProps = {
 
 PropComponent.propTypes = {
     name: PropTypes.string,
-    age: PropTypes.number.isRequired,
+    age: function(props, propName, componentName) {
+        if (!/(7|8)/.test(props[propName])) {
+          return new Error(
+            'Invalid prop `' + 
+            propName +  
+            "(" + 
+            props[propName] + 
+            ")" +
+            '` supplied to' +
+            ' `' + 
+            componentName + 
+            '`. Validation failed.'
+          );
+        }
+      },
 }
 
 export default function Component() {
